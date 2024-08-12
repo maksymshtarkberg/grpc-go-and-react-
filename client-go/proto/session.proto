@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package session;
+
+option go_package = ".";
+
+service SessionService {
+  rpc AddSession (AddSessionRequest) returns (AddSessionResponse);
+
+  rpc GetSession (GetSessionRequest) returns (GetSessionResponse);
+
+  rpc DelSession (DelSessionRequest) returns (DelSessionResponse);
+}
+
+message AddSessionRequest {
+  uint64 ID = 1;
+  string Session = 2;
+}
+
+message AddSessionResponse {
+  bool success = 1;
+}
+
+message GetSessionRequest {
+  uint64 ID = 1;
+}
+
+message GetSessionResponse {
+  string Session = 1;
+}
+
+message DelSessionRequest {
+  uint64 ID = 1;
+}
+
+message DelSessionResponse {
+  bool success = 1;
+}
